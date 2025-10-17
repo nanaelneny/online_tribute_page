@@ -1,52 +1,153 @@
-import { motion } from 'framer-motion'
-import TributeForm from './components/TributeForm.jsx'
-import TributeList from './components/TributeList.jsx'
-import portraitUrl from '/vite.svg'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import TributeForm from "./components/TributeForm.jsx";
+import TributeList from "./components/TributeList.jsx";
+
+/** Use one image for all three, or import three different ones */
+import centerPortrait from "./components/AnyConv.com__G1NeKZvWsAExEmg.jpg";  // change if you have another
+import leftPortrait from "./components/AnyConv.com__G1NeKZvWsAExEmg.jpg";   // change if you have another
+import rightPortrait from "./components/AnyConv.com__G1NeKZvWsAExEmg.jpg";  // change if you have another
 
 export default function App() {
-  const name = 'Full Name Here'
-  const lifespan = '1945–2025'
-  const epitaph = 'Forever in Our Hearts'
+  const [showForm, setShowForm] = useState(false);
 
-  return (
+  // Text you can change anytime
+  const nameScript = "Professor Emeritus Daniel Mireku-Gyimah";
+  const nameBlock  = "PROFESSOR EMERITUS DANIEL MIREKU-GYIMAH";
+  const lifespan   = "1945–2025";
+  const epitaph    = "Forever in Our Hearts";
+
+   return (
     <div className="min-h-screen flex flex-col">
-      <header className="pt-12 pb-6">
+      {/* ===================== HERO ===================== */}
+      <header className="pt-10 pb-6">
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mx-auto max-w-4xl px-5 text-center"
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-6xl px-5"
         >
-          <div className="inline-block p-1 rounded-full" style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
-            <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4" style={{ borderColor: '#D4AF37' }}>
-              <img src={portraitUrl} alt="Portrait" className="w-full h-full object-cover" />
+          {/* Three-phone composition */}
+          <div className="relative mx-auto max-w-6xl h-[560px] md:h-[620px]">
+            {/* gold glow behind */}
+            <div className="pointer-events-none absolute inset-0 flex items-start justify-center">
+              <div className="mt-6 h-[420px] w-[420px] md:h-[520px] md:w-[520px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(212,175,55,0.16)_0%,rgba(212,175,55,0.06)_40%,transparent_70%)]" />
+            </div>
+
+            {/* LEFT phone (decor) */}
+            <div
+              className="hidden sm:block absolute left-1/2 -translate-x-[140%] top-16
+                         rounded-[2rem] overflow-hidden
+                         w-[190px] md:w-[230px] aspect-[9/16]
+                         border border-black/10
+                         shadow-[0_18px_60px_rgba(0,0,0,0.25)]
+                         -rotate-6"
+              style={{
+                backgroundImage: `url(${leftPortrait})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="absolute inset-0 rounded-[2rem] pointer-events-none" style={{ boxShadow: "inset 0 0 0 2px rgba(0,0,0,0.35)" }} />
+              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.55))]" />
+            </div>
+
+            {/* RIGHT phone (decor) */}
+            <div
+              className="hidden sm:block absolute left-1/2 translate-x-[140%] top-20
+                         rounded-[2rem] overflow-hidden
+                         w-[190px] md:w-[230px] aspect-[9/16]
+                         border border-black/10
+                         shadow-[0_18px_60px_rgba(0,0,0,0.25)]
+                         rotate-6"
+              style={{
+                backgroundImage: `url(${rightPortrait})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="absolute inset-0 rounded-[2rem] pointer-events-none" style={{ boxShadow: "inset 0 0 0 2px rgba(0,0,0,0.35)" }} />
+              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.55))]" />
+            </div>
+
+            {/* CENTER phone (main) */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-0">
+              <div
+                className="relative rounded-[2.2rem] overflow-hidden
+                           w-[300px] sm:w-[360px] md:w-[420px] aspect-[9/16]
+                           border border-black/10
+                           shadow-[0_25px_90px_rgba(0,0,0,0.35)] bg-black"
+                style={{
+                  backgroundImage: `url(${centerPortrait})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center top", // face-first crop
+                }}
+              >
+                {/* subtle gold rim & vignette */}
+                <div className="absolute inset-0 rounded-[2.2rem] pointer-events-none" style={{ boxShadow: "inset 0 0 0 2px rgba(212,175,55,0.28)" }} />
+                <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_0%,rgba(0,0,0,0)_0%,rgba(0,0,0,0.12)_55%,rgba(0,0,0,0.22)_100%)]" />
+                <div className="absolute top-1.5 left-1/2 -translate-x-1/2 h-1 w-20 rounded-full bg-black/30" />
+              </div>
             </div>
           </div>
-          <h1 className="mt-6 text-4xl md:text-5xl font-bold tracking-widest uppercase">{name}</h1>
-          <p className="mt-2 text-lg tracking-wide opacity-80">{lifespan}</p>
-          <p className="mt-4 italic font-serif text-xl text-black/80">{epitaph}</p>
-          <div className="mt-6 w-24 h-[2px] mx-auto" style={{ backgroundColor: '#D4AF37' }} />
+
+          {/* Text block under phones */}
+          <div className="text-center mt-2">
+            <p className="tracking-[.18em] text-[11px] sm:text-xs text-black/60">
+              IN LOVING MEMORY OF
+            </p>
+
+            <div className="mt-1 text-[30px] sm:text-[36px] font-['Great_Vibes'] text-black/80">
+              {nameScript}
+            </div>
+
+            <div className="mt-1 text-[13px] text-black/60">{lifespan}</div>
+
+            <div className="mt-3 flex items-center justify-center gap-3 text-black/60">
+              <span className="h-px w-8 bg-[#D4AF37]/60" />
+              <span className="text-[12px] italic">{epitaph}</span>
+              <span className="h-px w-8 bg-[#D4AF37]/60" />
+            </div>
+
+            <div className="mt-6">
+              <button className="gold-button" onClick={() => setShowForm(v => !v)}>
+                {showForm ? "Hide Tribute Form" : "Leave a Tribute"}
+              </button>
+            </div>
+          </div>
         </motion.div>
       </header>
 
+      {/* ===================== MAIN ===================== */}
       <main className="flex-1">
-        <section className="mx-auto max-w-3xl px-5">
-          <TributeForm />
-        </section>
+        {showForm && (
+          <section className="mx-auto max-w-3xl px-5 mt-6">
+            <TributeForm />
+          </section>
+        )}
 
         <section className="mx-auto max-w-3xl px-5 mt-8 mb-16">
-          <TributeList />
+          <div className="text-center mb-4">
+            <h2 className="text-xl font-semibold tracking-wide text-black/80">Tributes</h2>
+            <p className="text-sm text-black/50">Newest messages appear first</p>
+          </div>
+
+          {/* contained scroll area */}
+          <div className="max-h-[520px] overflow-y-auto pr-1">
+            <TributeList />
+          </div>
         </section>
       </main>
 
+      {/* ===================== FOOTER ===================== */}
       <footer className="py-10 text-center">
         <div className="mx-auto max-w-3xl px-5">
-          <div className="w-full h-[1px]" style={{ backgroundColor: '#D4AF37' }} />
-          <p className="mt-4 font-serif text-sm text-black/70">In Eternal Memory of {name} — Forever in Our Hearts.</p>
+          <div className="w-full h-[1px]" style={{ backgroundColor: "#D4AF37" }} />
+          <p className="mt-4 font-serif text-sm text-black/70">
+            In Eternal Memory of {nameBlock} — Forever in Our Hearts.
+          </p>
         </div>
       </footer>
     </div>
-  )
+  );
 }
-
-

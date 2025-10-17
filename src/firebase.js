@@ -6,20 +6,31 @@
 // 3) DO NOT commit real credentials to a public repository.
 
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { initializeFirestore, setLogLevel } from 'firebase/firestore';
 
 // REPLACE all placeholder strings with your actual Firebase keys
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
+    apiKey: "AIzaSyA9OdApM_qwjq25vjy1An7bP9v0zWSuE2I",
+    authDomain: "tribute-prof.firebaseapp.com",
+    projectId: "tribute-prof",
+    storageBucket: "tribute-prof.firebasestorage.app",
+    messagingSenderId: "514177885691",
+    appId: "1:514177885691:web:41959e9e003c494067575e",
+    measurementId: "G-PCN1WK8XF6"
 };
 
 // Initialize Firebase and export Firestore
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+
+// Use long polling automatically if needed (fixes some network/proxy environments)
+export const db = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+  useFetchStreams: false,
+});
+
+// Verbose Firestore logs in dev to surface exact errors in the console
+if (import.meta && import.meta.env && import.meta.env.DEV) {
+  setLogLevel('debug');
+}
 
 
