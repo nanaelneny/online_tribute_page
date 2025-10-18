@@ -13,8 +13,8 @@ export default function App() {
 
   // Text you can change anytime
   const nameScript = "Professor Emeritus Daniel Mireku-Gyimah";
-  const nameBlock  = "PROFESSOR EMERITUS DANIEL MIREKU-GYIMAH";
-  const lifespan   = "1945–2025";
+  const nameBlock  = "Professor Emeritus Daniel Mireku-Gyimah";
+  const lifespan   = "1952–2025";
   const epitaph    = "Forever in Our Hearts";
 
    return (
