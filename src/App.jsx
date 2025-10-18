@@ -27,14 +27,15 @@ export default function App() {
    return (
     <div className="min-h-screen flex flex-col">
       {/* ===================== HERO ===================== */}
-      <header className="relative min-h-[92vh]">
-      {/* Full-bleed image */}
-      <div
-        className="absolute inset-0 bg-center bg-cover"
-        style={{
-          backgroundImage: `url(${centerPortrait})`,
-        }}
-      />
+      <header className="relative min-h-[92vh] overflow-hidden">
+        {/* Full-bleed image (robust) */}
+        <img
+          src={centerPortrait}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="eager"
+          fetchpriority="high"
+        />
 
       {/* Subtle grain texture over the hero */}
         <div
@@ -73,10 +74,6 @@ export default function App() {
         <div className="mt-1 text-[34px] sm:text-[42px] font-['Great_Vibes'] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">
           {nameScript}
         </div>
-
-        <h1 className="mt-1 text-xs sm:text-sm tracking-[.14em] text-white/85">
-          {nameBlock}
-        </h1>
 
         <div className="mt-2 text-[13px] text-white/85">{lifespan}</div>
 
