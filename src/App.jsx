@@ -63,20 +63,20 @@ export default function App() {
             pb-[max(28px,env(safe-area-inset-bottom))]
           "
         >
-          <p className="tracking-[.18em] text-[11px] sm:text-xs text-white/90">
+          <p className="hero-name _strokeBright tracking-[.18em] text-[11px] sm:text-xs text-white/90">
             IN LOVING MEMORY OF
           </p>
 
           <div className="hero-caption mt-2 text-white/95">
-            <div className="hero-name text-[34px] sm:text-[42px] font-['Great_Vibes'] drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
+            <div className="hero-kicker _strokeBright hero-name text-[34px] sm:text-[42px] font-['Great_Vibes'] drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
               {nameScript}
             </div>
 
-            <div className="mt-1 text-[13px]">{lifespan}</div>
+            <div className="hero-name _strokeBright mt-1 text-[13px]">{lifespan}</div>
 
             <div className="mt-2 flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-white/60" />
-              <span className="text-[12px] italic">{epitaph}</span>
+              <span className="hero-name _strokeBright text-[12px] italic">{epitaph}</span>
               <span className="h-px w-8 bg-white/60" />
             </div>
           </div>

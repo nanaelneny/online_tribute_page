@@ -191,3 +191,44 @@ body {
 
 /* Smaller lines just a touch brighter than white */
 .hero-caption .subtle { color: rgba(255,255,255,.95); }
+
+/* Shared stroke+shadow recipe */
+._strokeBright {
+  /* works in Safari/Chromium */
+  -webkit-text-stroke: .4px rgba(0,0,0,.55);
+  /* fallback everywhere (e.g., Firefox) */
+  text-shadow:
+    0 0 1px rgba(0,0,0,.85),
+    0 1px 2px rgba(0,0,0,.85),
+    0 2px 10px rgba(0,0,0,.65);
+}
+
+/* Kicker: IN LOVING MEMORY OF */
+.hero-kicker {
+  color: #FFF6D6;               /* warm ivory */
+  letter-spacing: .18em;
+  font-size: 11px;              /* you already set via Tailwind too */
+  opacity: .95;
+}
+
+/* Years line: 1952–2025 */
+.hero-years {
+  color: #FFF6D6;
+  letter-spacing: .02em;
+  font-weight: 500;
+  opacity: .98;
+}
+
+/* Epitaph: Forever in Our Hearts */
+.hero-epitaph {
+  color: #FFF6D6;
+  font-style: italic;
+  letter-spacing: .02em;
+  opacity: .98;
+}
+
+/* Prefer even stronger contrast if the user asks for it */
+@media (prefers-contrast: more) {
+  ._strokeBright { -webkit-text-stroke: .6px rgba(0,0,0,.7); }
+  .hero-caption { background: rgba(0,0,0,.52); }
+}
