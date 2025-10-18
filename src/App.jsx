@@ -48,14 +48,7 @@ export default function App() {
         />
 
         {/* Overlays: gold glow + bottom dark fade (click-through) */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* subtle gold vignette on the upper half */}
-          <div className="absolute inset-0
-                          bg-[radial-gradient(90%_60%_at_50%_10%,rgba(212,175,55,0.18)_0%,transparent_60%)]" />
-          {/* real bottom dark fade for readability */}
-          <div className="absolute inset-0
-                          bg-[linear-gradient(to_bottom,rgba(0,0,0,0)_58%,rgba(0,0,0,0.45)_78%,rgba(0,0,0,0.72)_100%)]" />
-        </div>
+        <div className="hero-bottom-fade" />
 
         {/* Content anchored to bottom (safe-area aware) */}
         <motion.div
@@ -72,19 +65,22 @@ export default function App() {
           <p className="tracking-[.18em] text-[11px] sm:text-xs text-white/90">
             IN LOVING MEMORY OF
           </p>
-          <div className="mt-1 text-[34px] sm:text-[42px] font-['Great_Vibes'] text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
-            {nameScript}
-          </div>
-          <div className="mt-2 text-[13px] text-white/95">{lifespan}</div>
-          <div className="mt-3 flex items-center gap-3 text-white/90">
-            <span className="h-px w-8 bg-white/70" />
-            <span className="text-[12px] italic">{epitaph}</span>
-            <span className="h-px w-8 bg-white/70" />
+
+          <div className="hero-caption mt-2 text-white/95">
+            <div className="hero-name text-[34px] sm:text-[42px] font-['Great_Vibes'] drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
+              {nameScript}
+            </div>
+
+            <div className="mt-1 text-[13px]">{lifespan}</div>
+
+            <div className="mt-2 flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-white/60" />
+              <span className="text-[12px] italic">{epitaph}</span>
+              <span className="h-px w-8 bg-white/60" />
+            </div>
           </div>
 
-
-          {/* CTA */}
-          <div className="mt-6">
+          <div className="mt-4">
             <button className="gold-button" onClick={onToggleTribute}>
               {showForm ? "Hide Tribute Form" : "Leave a Tribute"}
             </button>

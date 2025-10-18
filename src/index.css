@@ -71,3 +71,39 @@ body {
     background: rgba(255,255,255,0.6);
   }
 }
+
+/* Deepen the bottom fade on the hero image */
+.hero-bottom-fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    /* soft gold glow up top */
+    radial-gradient(90% 60% at 50% 10%, rgba(212,175,55,0.18) 0%, transparent 60%),
+    /* real dark fade for caption readability */
+    linear-gradient(to bottom,
+      rgba(0,0,0,0) 56%,
+      rgba(0,0,0,0.35) 72%,
+      rgba(0,0,0,0.70) 100%
+    );
+}
+
+/* A small glass pad behind the caption block */
+.hero-caption {
+  background: rgba(0,0,0,0.20);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 0.875rem; /* ~rounded-xl+ */
+  padding: 0.85rem 1rem;
+}
+@supports ((backdrop-filter: blur(0.001px)) or (-webkit-backdrop-filter: blur(0.001px))) {
+  .hero-caption {
+    -webkit-backdrop-filter: saturate(120%) blur(6px);
+    backdrop-filter: saturate(120%) blur(6px);
+    background: rgba(0,0,0,0.18);
+  }
+}
+
+/* Small screens: nudge text size down a hair */
+@media (max-width: 420px) {
+  .hero-name { font-size: 32px !important; }
+}
