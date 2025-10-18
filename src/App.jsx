@@ -126,9 +126,6 @@ export default function App() {
           <div className="text-center mb-3 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
             <h2 className="text-lg font-semibold tracking-wide">Tributes</h2>
             <p className="text-sm opacity-90">Newest messages appear first</p>
-            <p className="mt-2 text-[13px] text-white/95 _strokeBright">
-              {siteBlurb}
-            </p>
           </div>
 
           <div className="glass rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.15)] max-h-[56vh] overflow-y-auto">
