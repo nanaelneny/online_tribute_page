@@ -291,3 +291,87 @@ body {
 @media (max-width:420px){
   .hero-subtitle{ font-size:12px; }
 }
+
+/* ---------- Fluid type & spacing tokens ---------- */
+:root{
+  --fs-kicker: clamp(10px, 1.7vw, 12px);
+  --fs-script: clamp(26px, 6vw, 42px);      /* name */
+  --fs-years:  clamp(14px, 2.6vw, 18px);
+  --fs-quote:  clamp(16px, 4.6vw, 28px);
+  --fs-pill:   clamp(12px, 2.8vw, 15px);
+  --fs-lead:   clamp(13px, 2.8vw, 16px);
+
+  --pad-caption-y: clamp(10px, 2.5vh, 18px);
+  --pad-caption-x: clamp(12px, 4vw, 22px);
+  --radius-caption: 14px;
+}
+
+/* Apply tokens */
+.hero-kicker{
+  font-size: var(--fs-kicker);
+  letter-spacing: .18em;
+  color:#FFF6D6;
+  opacity:.95;
+}
+
+.hero-name-script{
+  font-size: var(--fs-script);
+  line-height: 1.12;
+  color:#FFF6D6;
+}
+
+.hero-years{
+  margin-top: .35rem;
+  font-size: var(--fs-years);
+  font-weight: 600;
+  color:#FFF6D6;
+}
+
+.hero-quote{
+  margin-top: .75rem;
+  font-size: var(--fs-quote);
+  line-height: 1.25;
+  color:#FFF6D6;
+  text-align:center;
+}
+
+/* The descriptive blurb */
+.hero-lead{
+  margin-top: .85rem;
+  font-size: var(--fs-lead);
+  line-height: 1.4;
+  color:#FFF6D6;
+}
+
+/* Caption plaque sizing */
+.hero-caption{
+  display:inline-block;
+  max-width:min(92vw, 720px);
+  margin-inline:auto;
+  padding: var(--pad-caption-y) var(--pad-caption-x);
+  border-radius: var(--radius-caption);
+}
+
+/* Achievement “pills” */
+.pill{
+  font-size: var(--fs-pill);
+}
+
+/* ---------- Short screens: tighten more ---------- */
+@media (max-height: 740px){
+  :root{
+    --fs-script: clamp(24px, 5.2vw, 36px);
+    --fs-quote:  clamp(15px, 4.2vw, 24px);
+    --pad-caption-y: clamp(8px, 2vh, 14px);
+  }
+  .hero-caption{ max-width: min(92vw, 640px); }
+}
+
+@media (max-height: 620px){
+  :root{
+    --fs-script: clamp(22px, 4.8vw, 32px);
+    --fs-quote:  clamp(14px, 3.8vw, 22px);
+    --fs-lead:   clamp(12px, 2.4vw, 14px);
+  }
+  .hero-caption{ padding: 8px 12px; }
+}

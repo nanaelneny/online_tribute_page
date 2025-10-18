@@ -43,7 +43,7 @@ export default function App() {
         <img
           src={centerPortrait}
           alt=""
-          className="hero-img absolute inset-0 w-full h-full object-cover object-[50%_22%] sm:object-[50%_20%]"
+          className="hero-img absolute inset-0 w-full h-full object-cover object-[50%_18%] sm:object-[50%_20%]"
           loading="eager"
           decoding="async"
           fetchpriority="high"
@@ -73,34 +73,26 @@ export default function App() {
             pb-[max(28px,env(safe-area-inset-bottom))]
           "
         >
-          <p className="hero-name _strokeBright tracking-[.18em] text-[11px] sm:text-xs text-white/90">
-            IN LOVING MEMORY OF
-          </p>
+          <p className="hero-kicker _strokeBright">IN LOVING MEMORY OF</p>
 
-          <div className="hero-caption mt-2 text-white/95">
-            <div className="hero-name text-[34px] sm:text-[42px] font-['Great_Vibes'] drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
+          <div className="hero-caption text-white/95">
+            <div className="hero-name-script _strokeBright font-['Great_Vibes']">
               {nameScript}
             </div>
 
-            <div className="hero-name _strokeBright mt-1 text-[13px]">{lifespan}</div>
+            <div className="hero-years _strokeBright">{lifespan}</div>
 
-            <div className="mt-2 flex items-center justify-center gap-3">
-              <span className="h-px w-8 bg-white/60" />
-              <span className="hero-name _strokeBright text-[12px] italic">{epitaph}</span>
-              <span className="h-px w-8 bg-white/60" />
+            <div className="hero-quote _strokeBright">
+              {epitaph}
             </div>
 
-            {/* NEW: Achievements */}
             <div className="hero-achievements mt-2">
               {achievements.map((a, i) => (
-                <span key={i} className="hero-chip _strokeBright">{a}</span>
+                <span key={i} className="pill _strokeBright">{a}</span>
               ))}
             </div>
 
-            {/* NEW: Invitation blurb */}
-            <p className="hero-subtitle _strokeBright mt-2">
-              {siteBlurb}
-            </p>
+            <p className="hero-lead _strokeBright mt-2">{siteBlurb}</p>
           </div>
 
           <div className="mt-4">
