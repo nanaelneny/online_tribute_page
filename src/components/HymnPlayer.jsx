@@ -93,8 +93,8 @@ export default function HymnPlayer() {
     <>
       {/* Hidden audio element (loops until paused) */}
       <audio ref={audioRef} loop preload="metadata">
-        <source src="/audio/memorial-hymn.mp3" type="audio/mpeg" />
-        <source src="/audio/memorial-hymn.ogg" type="audio/ogg" />
+        <source src="/audio/For All the Saints  Hymn with Lyrics  Dementia friendly - Spiritual Eldercare.mp3" type="audio/mpeg" />
+        <source src="/audio/For All the Saints  Hymn with Lyrics  Dementia friendly - Spiritual Eldercare.ogg" type="audio/ogg" />
       </audio>
 
       {/* Consent pill (refined look). Shows only if autoplay is blocked. */}
