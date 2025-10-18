@@ -68,7 +68,7 @@ export default function App() {
           </p>
 
           <div className="hero-caption mt-2 text-white/95">
-            <div className="hero-kicker _strokeBright hero-name text-[34px] sm:text-[42px] font-['Great_Vibes'] drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
+            <div className="hero-name text-[34px] sm:text-[42px] font-['Great_Vibes'] drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
               {nameScript}
             </div>
 
