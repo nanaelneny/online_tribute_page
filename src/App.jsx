@@ -33,7 +33,7 @@ export default function App() {
         <img
           src={centerPortrait}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-[50%_20%]"
+          className="hero-img absolute inset-0 w-full h-full object-cover object-[50%_20%]"
           loading="eager"
           fetchpriority="high"
         />
