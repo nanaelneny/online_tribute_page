@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import TributeForm from "./components/TributeForm.jsx";
 import TributeList from "./components/TributeList.jsx";
-import centerPortrait from "./components/AnyConv.com__G1NeKZvWsAExEmg.jpg";
+import centerPortrait from "./components/AnyConv_LE_upscale_balanced_x4.jpg";
 
 export default function App() {
   const [showForm, setShowForm] = useState(false);
@@ -33,8 +33,9 @@ export default function App() {
         <img
           src={centerPortrait}
           alt=""
-          className="hero-img absolute inset-0 w-full h-full object-cover object-[50%_20%]"
+          className="hero-img absolute inset-0 w-full h-full object-cover object-[50%_22%] sm:object-[50%_20%]"
           loading="eager"
+          decoding="async"
           fetchpriority="high"
         />
 

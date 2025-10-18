@@ -82,24 +82,26 @@ body {
     radial-gradient(90% 60% at 50% 10%, rgba(212,175,55,0.18) 0%, transparent 60%),
     /* real dark fade for caption readability */
     linear-gradient(to bottom,
-      rgba(0,0,0,0) 56%,
-      rgba(0,0,0,0.35) 72%,
-      rgba(0,0,0,0.78) 100%
+      rgba(0,0,0,0) 54%,
+      rgba(0,0,0,.50) 76%,
+      rgba(0,0,0,.80) 100%
     );
 }
 
 /* A small glass pad behind the caption block */
-.hero-caption {
-  background: rgba(0,0,0,0.20);
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 0.875rem; /* ~rounded-xl+ */
-  padding: 0.85rem 1rem;
+.hero-caption{
+  background: rgba(0,0,0,.20);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: .875rem;
+  padding: .9rem 1.1rem;
+  max-width: 92%;
+  margin-inline: auto;
 }
-@supports ((backdrop-filter: blur(0.001px)) or (-webkit-backdrop-filter: blur(0.001px))) {
-  .hero-caption {
+@supports ((backdrop-filter: blur(0.001px)) or (-webkit-backdrop-filter: blur(0.001px))){
+  .hero-caption{
     -webkit-backdrop-filter: saturate(120%) blur(6px);
     backdrop-filter: saturate(120%) blur(6px);
-    background: rgba(0,0,0,0.18);
+    background: rgba(0,0,0,.18);
   }
 }
 
@@ -107,33 +109,36 @@ body {
 @media (max-width: 420px) {
   .hero-name { font-size: 32px !important; }
 }
-
+@media (min-width: 640px){
+  .hero-caption{ max-width: 560px; } /* keeps it elegant on larger screens */
+}
 /* Keep the image crisp on Safari when scaled */
 .hero-img {
   image-rendering: -webkit-optimize-contrast; /* iOS sharpening when composited */
   transform: translateZ(0);                   /* force GPU layer, avoids subpixel fuzz */
 }
 
-/* Stronger bottom fade so text always pops */
-.hero-bottom-fade {
-  position: absolute; inset: 0; pointer-events: none;
+/* Stronger bottom fade so the whole caption area reads */
+.hero-bottom-fade{
+  position:absolute; inset:0; pointer-events:none;
   background:
-    radial-gradient(90% 60% at 50% 10%, rgba(212,175,55,.18) 0%, transparent 60%),
+    radial-gradient(90% 60% at 50% 12%, rgba(212,175,55,.16) 0%, transparent 60%),
     linear-gradient(to bottom,
-      rgba(0,0,0,0) 55%,
-      rgba(0,0,0,.50) 75%,
-      rgba(0,0,0,.85) 100%);
+      rgba(0,0,0,0) 54%,
+      rgba(0,0,0,.42) 72%,
+      rgba(0,0,0,.86) 100%);
 }
+
 
 /* Caption plaque: make it compact so blur (when enabled) only covers a small area */
 .hero-caption {
   display: inline-block;            /* not full width */
   max-width: min(92vw, 680px);
   margin-inline: auto;
-  background: rgba(0,0,0,.20);
-  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(0,0,0,.44);
+  border: 1px solid rgba(255,255,255,.35);
   border-radius: .875rem;
-  padding: .85rem 1rem;
+  padding: .9rem 1rem;
 }
 
 /* Enable nice blur only on medium+ screens.
@@ -141,9 +146,9 @@ body {
 @media (min-width: 480px) {
   @supports ((backdrop-filter: blur(0.001px)) or (-webkit-backdrop-filter: blur(0.001px))) {
     .hero-caption {
-      -webkit-backdrop-filter: saturate(120%) blur(6px);
-      backdrop-filter: saturate(120%) blur(6px);
-      background: rgba(0,0,0,.18);
+      -webkit-backdrop-filter: saturate(120%) blur(7px);
+      backdrop-filter: saturate(120%) blur(7px);
+      background: rgba(0,0,0,.38);
     }
   }
 }
@@ -152,3 +157,37 @@ body {
 @media (max-width: 420px) {
   .hero-name { font-size: 32px !important; }
 }
+
+/* phones: a little more fade so the name stays readable */
+@media (max-width: 420px){
+  .hero-bottom-fade{
+    background:
+      radial-gradient(90% 60% at 50% 10%, rgba(212,175,55,.20) 0%, transparent 60%),
+      linear-gradient(to bottom,
+        rgba(0,0,0,0) 50%,
+        rgba(0,0,0,.55) 74%,
+        rgba(0,0,0,.88) 100%
+      );
+  }
+}
+
+/* keep the hero image crisp; avoid accidental browser smoothing */
+.hero-img{ image-rendering:auto; }
+
+/* New “ivory” text + outline for max contrast */
+.text-ivory{ color:#FFF6D6; }               /* warm ivory instead of pure white */
+
+.hero-name{
+  color:#FFF6D6;
+  letter-spacing:.3px;
+  /* thin dark outline for readability on busy reds */
+  -webkit-text-stroke: .5px rgba(0,0,0,.55);
+
+  text-shadow:
+    0 0 1px rgba(0,0,0,.85),
+    0 1px 2px rgba(0,0,0,.85),
+    0 2px 10px rgba(0,0,0,.65);
+}
+
+/* Smaller lines just a touch brighter than white */
+.hero-caption .subtle { color: rgba(255,255,255,.95); }
