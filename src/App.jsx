@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import TributeForm from "./components/TributeForm.jsx";
 import TributeList from "./components/TributeList.jsx";
 import centerPortrait from "./components/AnyConv_LE_upscale_balanced_x4.jpg";
+import HymnPlayer from "./components/HymnPlayer.jsx";
 
 export default function App() {
   const [showForm, setShowForm] = useState(false);
@@ -23,7 +24,7 @@ export default function App() {
   const nameScript = "Professor Emeritus Daniel Mireku-Gyimah";
   const nameBlock  = "Professor Emeritus Daniel Mireku-Gyimah"; // used in footer
   const lifespan   = "1952–2025";
-  const epitaph    = "Our rewards in life will be in direct ration to our service";
+  const epitaph    = "Our rewards in life will be in direct ratio to our service";
 
   const achievements = [
     "First Professor of Mining Engineering in Sub-Saharan Africa",
@@ -35,6 +36,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <HymnPlayer />
       {/* ============== HERO ============== */}
       <header className="relative min-h-[92vh] overflow-hidden">
         {/* Full-bleed image (object position nudged so face sits higher) */}
