@@ -75,25 +75,25 @@ export default function App() {
         >
           <p className="hero-kicker _strokeBright">IN LOVING MEMORY OF</p>
 
-          <div className="hero-caption text-white/95">
-            <div className="hero-name-script _strokeBright font-['Great_Vibes']">
-              {nameScript}
+            <div className="hero-caption text-white/95">
+              <div className="hero-name-script _strokeBright font-['Great_Vibes']">
+                {nameScript}
+              </div>
+
+              <div className="hero-years _strokeBright">{lifespan}</div>
+
+              <div className="hero-quote _strokeBright">
+                {epitaph}
+              </div>
+
+              <div className="hero-achievements mt-2">
+                {achievements.map((a, i) => (
+                  <span key={i} className="pill _strokeBright">{a}</span>
+                ))}
+              </div>
+
+              <p className="hero-lead _strokeBright mt-2">{siteBlurb}</p>
             </div>
-
-            <div className="hero-years _strokeBright">{lifespan}</div>
-
-            <div className="hero-quote _strokeBright">
-              {epitaph}
-            </div>
-
-            <div className="hero-achievements mt-2">
-              {achievements.map((a, i) => (
-                <span key={i} className="pill _strokeBright">{a}</span>
-              ))}
-            </div>
-
-            <p className="hero-lead _strokeBright mt-2">{siteBlurb}</p>
-          </div>
 
           <div className="mt-4">
             <button className="gold-button" onClick={onToggleTribute}>
