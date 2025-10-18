@@ -23,7 +23,15 @@ export default function App() {
   const nameScript = "Professor Emeritus Daniel Mireku-Gyimah";
   const nameBlock  = "Professor Emeritus Daniel Mireku-Gyimah"; // used in footer
   const lifespan   = "1952–2025";
-  const epitaph    = "Forever in Our Hearts";
+  const epitaph    = "Our rewards in life will be in direct ration to our service";
+
+  const achievements = [
+    "First Professor of Mining Engineering in Sub-Saharan Africa",
+    "Recipient of the Order of the Volta",
+  ];
+
+  const siteBlurb =
+  "This platform allows you to celebrate Prof’s legacy and share your personal stories, memories, and experiences with him.";
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -79,6 +87,18 @@ export default function App() {
               <span className="hero-name _strokeBright text-[12px] italic">{epitaph}</span>
               <span className="h-px w-8 bg-white/60" />
             </div>
+
+            {/* NEW: Achievements */}
+            <div className="hero-achievements mt-2">
+              {achievements.map((a, i) => (
+                <span key={i} className="hero-chip _strokeBright">{a}</span>
+              ))}
+            </div>
+
+            {/* NEW: Invitation blurb */}
+            <p className="hero-subtitle _strokeBright mt-2">
+              {siteBlurb}
+            </p>
           </div>
 
           <div className="mt-4">
@@ -88,6 +108,8 @@ export default function App() {
           </div>
         </motion.div>
       </header>
+
+      
 
       {/* ============== MAIN ============== */}
       <main className="-mt-10 relative z-20">
@@ -104,6 +126,9 @@ export default function App() {
           <div className="text-center mb-3 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
             <h2 className="text-lg font-semibold tracking-wide">Tributes</h2>
             <p className="text-sm opacity-90">Newest messages appear first</p>
+            <p className="mt-2 text-[13px] text-white/95 _strokeBright">
+              {siteBlurb}
+            </p>
           </div>
 
           <div className="glass rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.15)] max-h-[56vh] overflow-y-auto">

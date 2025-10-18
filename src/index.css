@@ -232,3 +232,62 @@ body {
   ._strokeBright { -webkit-text-stroke: .6px rgba(0,0,0,.7); }
   .hero-caption { background: rgba(0,0,0,.52); }
 }
+
+/* Achievements row */
+.hero-achievements{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.45rem .5rem;
+}
+
+/* Gold glass chips */
+.hero-chip{
+  color:#FFF6D6;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.01em;
+  padding:.35rem .65rem;
+  border-radius:9999px;
+  border:1px solid rgba(212,175,55,.78);
+  background:rgba(0,0,0,.28);       /* readable without blur */
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
+}
+@supports ((backdrop-filter: blur(0.001px)) or (-webkit-backdrop-filter: blur(0.001px))) {
+  .hero-chip{
+    -webkit-backdrop-filter: saturate(120%) blur(6px);
+    backdrop-filter: saturate(120%) blur(6px);
+    background:rgba(0,0,0,.2);
+  }
+}
+
+/* Slightly smaller on narrow phones */
+@media (max-width:420px){
+  .hero-chip{ font-size:11px; padding:.3rem .58rem; }
+}
+
+.hero-subtitle{
+  color:#FFF6D6;
+  font-size:12.5px;
+  line-height:1.35;
+  max-width:42rem;
+  margin:.25rem auto 0;
+  opacity:.98;
+
+  /* cross-browser, safe fallbacks */
+  white-space: normal;
+  overflow-wrap: anywhere;       /* breaks long words if needed */
+  word-break: normal;                /* standard */
+  -moz-hyphens: auto;            /* Firefox */
+  -webkit-hyphens: auto;
+  hyphens: auto;         /* Safari */
+}
+
+/* Use balanced wrapping only where it exists */
+@supports (text-wrap: balance) {
+  .hero-subtitle { text-wrap: balance; }
+}
+
+@media (max-width:420px){
+  .hero-subtitle{ font-size:12px; }
+}
